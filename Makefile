@@ -19,3 +19,6 @@ create-venv: .create-venv setup
 setup: .pip
 	pip install -U setuptools
 	pip install -r requirements.txt
+
+run-postgres:
+	docker start ceotech-postgres 2>/dev/null || docker run --name covid-postgres -p 5432:5432 -e POSTGRES_PASSWORD='$(DATABASE_PASS)' -d postgres:10-alpine
