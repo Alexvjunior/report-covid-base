@@ -1,3 +1,3 @@
 release: python manage.py migrate
 release: python manage.py collectstatic
-web: gunicorn wsgi
+web: gunicorn config.wsgi
