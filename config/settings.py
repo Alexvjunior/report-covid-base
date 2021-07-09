@@ -15,7 +15,7 @@ from pathlib import Path
 from environ import Env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  
 
 env = Env()
 env_file = os.path.join(BASE_DIR, '../.env')
@@ -37,12 +37,15 @@ ALLOWED_HOSTS = ["report-covid.herokuapp.com"]
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+   'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',
+    'rest_framework',
+    'rest_framework.authtoken',
     'whitenoise.runserver_nostatic',
     'corsheaders',
 
